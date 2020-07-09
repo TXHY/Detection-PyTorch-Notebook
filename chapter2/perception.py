@@ -23,3 +23,17 @@ class Perception(nn.Module):
         y = self.layer2(y)
         y = torch.sigmoid(y)
         return y
+
+if __name__ == "__main__":
+    perception = Perception(2,3,2)
+    print(perception)
+    for name, param in perception.named_parameters():
+        print(name, param)
+    data = torch.randn(4,2)
+    print(">>>假数据: ", data)
+    output = perception(data)
+    print(">>>输出结果: ", output)
+
+
+
+
